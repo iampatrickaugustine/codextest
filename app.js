@@ -4,9 +4,9 @@ const PREVIEW_MESSAGE = "evenfeed-preview-config";
 const DEFAULT_CONFIG = {
   mode: "demo",
   widget: {
-    title: "Live event inventory",
-    subtitle: "Unified tickets from your primary providers.",
-    theme: "night-market",
+    title: "Featured offers",
+    subtitle: "Connected ticketing inventory, ready for checkout.",
+    theme: "coral",
     layout: "stack",
     maxItems: 6,
     showPrice: true,
@@ -159,7 +159,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initAdminPage() {
-  const form = document.getElementById("settings-form");
   const iframe = document.getElementById("widget-preview");
   const previewTableBody = document.getElementById("preview-table-body");
   const embedCodeEl = document.getElementById("embed-code");
@@ -176,10 +175,13 @@ function initAdminPage() {
     field.addEventListener("change", handleFormChange);
   });
 
-  document.getElementById("refresh-preview").addEventListener("click", async () => {
-    addLog("Preview refresh requested.");
-    await refreshAdminPreview({ notifyFrame: true });
-  });
+  const refreshButton = document.getElementById("refresh-preview");
+  if (refreshButton) {
+    refreshButton.addEventListener("click", async () => {
+      addLog("Preview refresh requested.");
+      await refreshAdminPreview({ notifyFrame: Boolean(iframe) });
+    });
+  }
 
   document.getElementById("save-draft").addEventListener("click", () => {
     persistConfig(state.config);
@@ -194,7 +196,7 @@ function initAdminPage() {
     renderContractExamples(contractConfigEl, contractEventsEl, state.config);
     renderEmbedCode(embedCodeEl, state.config);
     addLog("Demo configuration reset to defaults.");
-    await refreshAdminPreview({ notifyFrame: true });
+    await refreshAdminPreview({ notifyFrame: Boolean(iframe) });
   });
 
   document.getElementById("push-config").addEventListener("click", async () => {
@@ -234,11 +236,13 @@ function initAdminPage() {
     renderActivityLog(activityLogEl);
   });
 
-  iframe.addEventListener("load", () => {
-    notifyPreviewFrame();
-  });
+  if (iframe) {
+    iframe.addEventListener("load", () => {
+      notifyPreviewFrame();
+    });
+  }
 
-  refreshAdminPreview({ notifyFrame: true }).then(() => {
+  refreshAdminPreview({ notifyFrame: Boolean(iframe) }).then(() => {
     renderPreviewTable(previewTableBody, state.events, state.config);
     renderActivityLog(activityLogEl);
   });
@@ -285,7 +289,10 @@ async function handleFormChange(event) {
     state.config
   );
   renderEmbedCode(document.getElementById("embed-code"), state.config);
-  await refreshAdminPreview({ notifyFrame: true, silent: true });
+  await refreshAdminPreview({
+    notifyFrame: Boolean(document.getElementById("widget-preview")),
+    silent: true,
+  });
 }
 
 async function refreshAdminPreview({ notifyFrame = false, silent = false } = {}) {
@@ -557,7 +564,7 @@ function renderWidgetCard(event, config) {
           <span class="date-pill">${formatEventDate(event.dateTime)}</span>
         </div>
         <h3>${escapeHtml(event.title)}</h3>
-        <p>${escapeHtml(event.venue)} · ${escapeHtml(event.city)}</p>
+        <p>${escapeHtml(event.venue)} &middot; ${escapeHtml(event.city)}</p>
         <div class="event-foot">
           <strong>${formatPrice(event.priceFrom, config.widget.showPrice)}</strong>
           <a href="${escapeHtml(event.url)}" target="_blank" rel="noreferrer">View tickets</a>
@@ -732,7 +739,7 @@ function persistConfig(config) {
 }
 
 function sanitizeConfig(candidate) {
-  return {
+  const sanitized = {
     ...clone(DEFAULT_CONFIG),
     ...candidate,
     widget: {
@@ -758,6 +765,26 @@ function sanitizeConfig(candidate) {
       ...(candidate?.api || {}),
     },
   };
+
+  const legacyThemes = {
+    "night-market": "coral",
+    "arena-sunset": "coral",
+    "ice-house": "slate",
+  };
+
+  if (legacyThemes[sanitized.widget.theme]) {
+    sanitized.widget.theme = legacyThemes[sanitized.widget.theme];
+  }
+
+  if (sanitized.widget.title === "Live event inventory") {
+    sanitized.widget.title = DEFAULT_CONFIG.widget.title;
+  }
+
+  if (sanitized.widget.subtitle === "Unified tickets from your primary providers.") {
+    sanitized.widget.subtitle = DEFAULT_CONFIG.widget.subtitle;
+  }
+
+  return sanitized;
 }
 
 function applyQueryOverrides(config, search) {

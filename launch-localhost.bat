@@ -10,7 +10,7 @@ if not exist "%ROOT%serve-local.ps1" (
 )
 
 start "LCARS Server" powershell.exe -NoLogo -ExecutionPolicy Bypass -File "%ROOT%serve-local.ps1" -Port %PORT%
-timeout /t 2 /nobreak >nul
+ping 127.0.0.1 -n 3 >nul
 
 if exist "%BROWSER%" (
   start "LCARS Interface" "%BROWSER%" "http://127.0.0.1:%PORT%/index.html"
