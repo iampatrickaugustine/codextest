@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EvenFeed Widget Demo</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="widget">
+  <main class="widget-page">
+    <section class="widget-shell" id="widget-root">
+      <div class="widget-header">
+        <div>
+          <p class="eyebrow">Embeddable feed</p>
+          <h1 id="widget-title-text">Live event inventory</h1>
+          <p class="widget-subtitle" id="widget-subtitle-text">Unified tickets from your primary providers.</p>
+        </div>
+        <button class="widget-refresh" id="widget-refresh" type="button">Refresh</button>
+      </div>
+
+      <div class="widget-toolbar">
+        <span class="chip" id="widget-mode-chip">Demo mode</span>
+        <span class="chip" id="widget-provider-chip">2 providers</span>
+        <span class="chip" id="widget-filter-chip">Chicago</span>
+      </div>
+
+      <div class="widget-feedback" id="widget-feedback">Loading feed...</div>
+      <div class="widget-events" id="widget-events"></div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

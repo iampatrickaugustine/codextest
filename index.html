@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EvenFeed Admin Console</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="admin">
+  <div class="app-shell">
+    <header class="hero-banner">
+      <div class="hero-copy">
+        <p class="eyebrow">Unified ticket feed</p>
+        <h1>EvenFeed</h1>
+        <p class="hero-summary">
+          A demo admin console for managing Ticketmaster and Tickets.com integrations, plus an embeddable widget that publishes a unified event feed.
+        </p>
+      </div>
+
+      <div class="hero-rail">
+        <a class="hero-link active" href="./index.html">Admin console</a>
+        <a class="hero-link" href="./widget.html?embedded=0" target="_blank" rel="noreferrer">Open widget demo</a>
+      </div>
+    </header>
+
+    <section class="status-strip">
+      <article class="status-card">
+        <span class="status-label">Mode</span>
+        <strong id="summary-mode">Demo</strong>
+      </article>
+      <article class="status-card">
+        <span class="status-label">Providers enabled</span>
+        <strong id="summary-providers">2</strong>
+      </article>
+      <article class="status-card">
+        <span class="status-label">Widget theme</span>
+        <strong id="summary-theme">Night market</strong>
+      </article>
+      <article class="status-card">
+        <span class="status-label">Preview items</span>
+        <strong id="summary-count">0</strong>
+      </article>
+    </section>
+
+    <main class="dashboard-grid">
+      <section class="panel preview-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Embeddable widget</p>
+            <h2>Live preview</h2>
+          </div>
+          <button class="ghost-button" id="refresh-preview" type="button">Refresh preview</button>
+        </div>
+
+        <div class="widget-frame-shell">
+          <iframe
+            id="widget-preview"
+            title="EvenFeed widget preview"
+            src="./widget.html?embedded=1"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div class="preview-meta">
+          <article class="mini-card">
+            <span class="status-label">Headline</span>
+            <strong id="summary-title">Live event inventory</strong>
+          </article>
+          <article class="mini-card">
+            <span class="status-label">City filter</span>
+            <strong id="summary-city">Chicago</strong>
+          </article>
+          <article class="mini-card">
+            <span class="status-label">Layout</span>
+            <strong id="summary-layout">Stack</strong>
+          </article>
+        </div>
+
+        <div class="panel-head tight">
+          <div>
+            <p class="eyebrow">Unified feed</p>
+            <h2>Preview events</h2>
+          </div>
+        </div>
+        <div class="feed-table-shell">
+          <table class="feed-table">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Provider</th>
+                <th>Date</th>
+                <th>Venue</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody id="preview-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside class="admin-column">
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Feed controller</p>
+              <h2>Widget settings</h2>
+            </div>
+          </div>
+
+          <form class="control-form" id="settings-form">
+            <label class="field">
+              <span>Widget title</span>
+              <input data-path="widget.title" id="widget-title" type="text" value="">
+            </label>
+            <label class="field">
+              <span>Widget subtitle</span>
+              <input data-path="widget.subtitle" type="text" value="">
+            </label>
+            <div class="field-grid">
+              <label class="field">
+                <span>Mode</span>
+                <select data-path="mode">
+                  <option value="demo">Demo data</option>
+                  <option value="api">API managed</option>
+                  <option value="direct">Browser direct</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Theme</span>
+                <select data-path="widget.theme">
+                  <option value="night-market">Night market</option>
+                  <option value="arena-sunset">Arena sunset</option>
+                  <option value="ice-house">Ice house</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Layout</span>
+                <select data-path="widget.layout">
+                  <option value="stack">Stack</option>
+                  <option value="grid">Grid</option>
+                  <option value="compact">Compact</option>
+                </select>
+              </label>
+            </div>
+            <div class="field-grid">
+              <label class="field">
+                <span>Keyword</span>
+                <input data-path="filters.keyword" type="text" value="">
+              </label>
+              <label class="field">
+                <span>City</span>
+                <input data-path="filters.city" type="text" value="">
+              </label>
+              <label class="field">
+                <span>Category</span>
+                <select data-path="filters.classification">
+                  <option value="">All</option>
+                  <option value="music">Music</option>
+                  <option value="sports">Sports</option>
+                  <option value="family">Family</option>
+                  <option value="theatre">Theatre</option>
+                </select>
+              </label>
+            </div>
+            <div class="field-grid">
+              <label class="field">
+                <span>Start date</span>
+                <input data-path="filters.startDate" type="date" value="">
+              </label>
+              <label class="field">
+                <span>Days out</span>
+                <input data-path="filters.daysOut" type="number" min="1" max="120" value="">
+              </label>
+              <label class="field">
+                <span>Max items</span>
+                <input data-path="widget.maxItems" type="number" min="2" max="12" value="">
+              </label>
+            </div>
+            <label class="field checkbox-field">
+              <input data-path="widget.showPrice" type="checkbox">
+              <span>Show price callouts inside the widget</span>
+            </label>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Providers</p>
+              <h2>Integration controls</h2>
+            </div>
+          </div>
+
+          <div class="provider-stack">
+            <article class="provider-card">
+              <div class="provider-head">
+                <div>
+                  <h3>Ticketmaster</h3>
+                  <p>Supports browser-direct previews with the Discovery API key model.</p>
+                </div>
+                <label class="toggle">
+                  <input data-path="providers.ticketmaster.enabled" type="checkbox">
+                  <span>Enabled</span>
+                </label>
+              </div>
+              <div class="field-grid">
+                <label class="field">
+                  <span>API key</span>
+                  <input data-path="providers.ticketmaster.apiKey" type="text" placeholder="Optional for direct mode">
+                </label>
+                <label class="field">
+                  <span>Source</span>
+                  <select data-path="providers.ticketmaster.source">
+                    <option value="">All</option>
+                    <option value="ticketmaster">Ticketmaster</option>
+                    <option value="tmr">TMR</option>
+                    <option value="universe">Universe</option>
+                    <option value="frontgate">Frontgate</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span>Country code</span>
+                  <input data-path="providers.ticketmaster.countryCode" type="text" maxlength="2">
+                </label>
+              </div>
+            </article>
+
+            <article class="provider-card">
+              <div class="provider-head">
+                <div>
+                  <h3>Tickets.com</h3>
+                  <p>Configured as an API-managed adapter because partner credentials and endpoints are typically private.</p>
+                </div>
+                <label class="toggle">
+                  <input data-path="providers.ticketscom.enabled" type="checkbox">
+                  <span>Enabled</span>
+                </label>
+              </div>
+              <div class="field-grid">
+                <label class="field">
+                  <span>Base URL</span>
+                  <input data-path="providers.ticketscom.baseUrl" type="text">
+                </label>
+                <label class="field">
+                  <span>Tenant / org</span>
+                  <input data-path="providers.ticketscom.tenant" type="text">
+                </label>
+                <label class="field">
+                  <span>Auth token</span>
+                  <input data-path="providers.ticketscom.token" type="text" placeholder="Stored server-side in production">
+                </label>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">API contract</p>
+              <h2>Managed endpoints</h2>
+            </div>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Config endpoint</span>
+              <input data-path="api.configEndpoint" type="text">
+            </label>
+            <label class="field">
+              <span>Feed endpoint</span>
+              <input data-path="api.feedEndpoint" type="text">
+            </label>
+            <label class="field">
+              <span>Refresh endpoint</span>
+              <input data-path="api.refreshEndpoint" type="text">
+            </label>
+          </div>
+
+          <div class="action-row">
+            <button class="primary-button" id="save-draft" type="button">Save draft</button>
+            <button class="ghost-button" id="push-config" type="button">Push to API</button>
+            <button class="ghost-button" id="reset-config" type="button">Reset demo</button>
+          </div>
+
+          <pre class="contract-box" id="contract-config"></pre>
+          <pre class="contract-box" id="contract-events"></pre>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Embed handoff</p>
+              <h2>Copy this snippet</h2>
+            </div>
+            <button class="ghost-button" id="copy-embed" type="button">Copy embed</button>
+          </div>
+
+          <textarea class="embed-box" id="embed-code" readonly></textarea>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Operator log</p>
+              <h2>Recent actions</h2>
+            </div>
+          </div>
+          <ol class="activity-log" id="activity-log"></ol>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
