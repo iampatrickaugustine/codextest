@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EvenFeed Mock Checkout</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="checkout">
+  <main class="checkout-page">
+    <section class="checkout-shell">
+      <header class="checkout-header">
+        <a class="page-link" href="./widget.html?embedded=0">Back to widget</a>
+        <div>
+          <p class="eyebrow">Mock checkout</p>
+          <h1>Complete your purchase</h1>
+          <p class="checkout-copy">This is a demo checkout flow for the widget. No real payment is processed.</p>
+        </div>
+      </header>
+
+      <div class="checkout-grid">
+        <section class="panel checkout-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Order details</p>
+              <h3>Selected offer</h3>
+            </div>
+          </div>
+
+          <div class="checkout-summary">
+            <div class="checkout-art" id="checkout-art"></div>
+            <div class="checkout-summary-copy">
+              <span class="provider-pill" id="checkout-provider">Provider</span>
+              <h2 id="checkout-title">Event title</h2>
+              <p id="checkout-meta">Venue · City</p>
+              <div class="checkout-stats">
+                <div>
+                  <span class="status-label">Date</span>
+                  <strong id="checkout-date">Date</strong>
+                </div>
+                <div>
+                  <span class="status-label">Starting at</span>
+                  <strong id="checkout-price">From $0</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel checkout-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Buyer information</p>
+              <h3>Mock payment form</h3>
+            </div>
+          </div>
+
+          <form class="control-form" id="checkout-form">
+            <div class="field-grid field-grid-wide">
+              <label class="field">
+                <span>First name</span>
+                <input id="checkout-first-name" type="text" placeholder="Patrick" required>
+              </label>
+              <label class="field">
+                <span>Last name</span>
+                <input id="checkout-last-name" type="text" placeholder="Augustine" required>
+              </label>
+            </div>
+
+            <div class="field-grid field-grid-wide">
+              <label class="field">
+                <span>Email</span>
+                <input id="checkout-email" type="email" placeholder="name@example.com" required>
+              </label>
+              <label class="field">
+                <span>Phone</span>
+                <input id="checkout-phone" type="tel" placeholder="(555) 123-4567" required>
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Quantity</span>
+                <select id="checkout-quantity">
+                  <option value="1">1 ticket</option>
+                  <option value="2" selected>2 tickets</option>
+                  <option value="4">4 tickets</option>
+                  <option value="6">6 tickets</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Card number</span>
+                <input id="checkout-card" type="text" inputmode="numeric" placeholder="4242 4242 4242 4242" required>
+              </label>
+              <label class="field">
+                <span>Postal code</span>
+                <input id="checkout-zip" type="text" placeholder="60601" required>
+              </label>
+            </div>
+
+            <div class="checkout-total">
+              <span class="status-label">Estimated total</span>
+              <strong id="checkout-total">$0</strong>
+            </div>
+
+            <div class="action-row">
+              <button class="primary-button" type="submit">Complete mock purchase</button>
+              <a class="ghost-button" href="./widget.html?embedded=0">Cancel</a>
+            </div>
+          </form>
+
+          <div class="checkout-result" id="checkout-result" hidden>
+            <p class="eyebrow">Order confirmed</p>
+            <h3>Mock checkout complete</h3>
+            <p id="checkout-result-copy">Confirmation details will appear here.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

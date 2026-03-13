@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EvenFeed Offer Detail</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="offer">
+  <main class="offer-page">
+    <section class="offer-shell">
+      <header class="offer-header">
+        <a class="page-link" href="./widget.html">Back to widget examples</a>
+        <div>
+          <p class="eyebrow">Offer detail</p>
+          <h1 id="offer-title">Event title</h1>
+          <p class="offer-copy" id="offer-subtitle">Offer details and collection context.</p>
+        </div>
+      </header>
+
+      <div class="offer-grid">
+        <section class="panel offer-hero-panel">
+          <div class="offer-art" id="offer-art"></div>
+          <div class="offer-detail-stack">
+            <div class="offer-meta-row">
+              <span class="category-pill" id="offer-badge">Badge</span>
+              <span class="date-pill" id="offer-date">Date</span>
+            </div>
+            <div class="offer-location-block">
+              <h2 id="offer-heading">Event title</h2>
+              <p id="offer-location">Venue · City</p>
+            </div>
+            <div class="offer-summary-card">
+              <div>
+                <span class="status-label">Starting at</span>
+                <strong id="offer-price">From $0</strong>
+              </div>
+              <div>
+                <span class="status-label">Collection</span>
+                <strong id="offer-collection">Collection</strong>
+              </div>
+              <div>
+                <span class="status-label">Audience</span>
+                <strong id="offer-segment">Audience</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="offer-sidebar">
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Why this offer</p>
+                <h3>Merchandising context</h3>
+              </div>
+            </div>
+            <p class="offer-description" id="offer-description">Description</p>
+            <div class="offer-highlights" id="offer-highlights"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Next step</p>
+                <h3>Purchase path</h3>
+              </div>
+            </div>
+            <p class="offer-description">
+              Open the mocked checkout flow to review the purchase handoff with the same offer context and imagery.
+            </p>
+            <div class="action-row">
+              <a class="primary-link full-width" id="offer-buy-cta" href="./checkout.html">Buy</a>
+              <a class="ghost-button full-width" href="./widget.html">Back to examples</a>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

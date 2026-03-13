@@ -146,6 +146,80 @@
       </section>
 
       <section class="split-panels">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Collections</p>
+              <h3>Segmentation and offer builder</h3>
+            </div>
+          </div>
+
+          <div class="field-grid field-grid-wide">
+            <label class="field">
+              <span>Collection name</span>
+              <input data-path="collection.name" type="text" value="">
+            </label>
+            <label class="field">
+              <span>Collection subtitle</span>
+              <input data-path="collection.subtitle" type="text" value="">
+            </label>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Audience segment</span>
+              <select data-path="collection.segment">
+                <option value="local-fans">Local fans</option>
+                <option value="premium-buyers">Premium buyers</option>
+                <option value="family-outings">Family outings</option>
+                <option value="music-lovers">Music lovers</option>
+                <option value="last-minute">Last minute buyers</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Merchandising goal</span>
+              <select data-path="collection.goal">
+                <option value="conversion">Drive conversion</option>
+                <option value="discovery">Drive discovery</option>
+                <option value="upsell">Upsell premium inventory</option>
+                <option value="retention">Promote repeat attendance</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Featured offer</span>
+              <select data-path="collection.featuredEventId" id="featured-offer-select"></select>
+            </label>
+          </div>
+
+          <div class="offer-selector" id="offer-selector"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Collection summary</p>
+              <h3>Current storefront package</h3>
+            </div>
+          </div>
+
+          <div class="demo-callout">
+            <div class="demo-callout-copy">
+              <span class="status-label">Collection</span>
+              <strong id="summary-collection">Weekend picks</strong>
+            </div>
+            <div class="demo-callout-copy">
+              <span class="status-label">Audience</span>
+              <strong id="summary-segment">Local fans</strong>
+            </div>
+            <div class="demo-callout-copy">
+              <span class="status-label">Featured offer</span>
+              <strong id="summary-featured">Chicago Fire FC vs Austin FC</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="split-panels">
         <article class="panel" id="integrations">
           <div class="panel-head">
             <div>
@@ -231,6 +305,10 @@
             <div class="demo-callout-copy">
               <span class="status-label">Headline</span>
               <strong id="summary-title">Featured offers</strong>
+            </div>
+            <div class="demo-callout-copy">
+              <span class="status-label">Collection</span>
+              <strong id="summary-demo-collection">Weekend picks</strong>
             </div>
             <div class="demo-callout-copy">
               <span class="status-label">Market</span>

@@ -7,27 +7,106 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body data-page="widget">
-  <main class="widget-page">
-    <section class="widget-shell" id="widget-root">
-      <div class="widget-banner"></div>
+  <main class="widget-demo-page" id="widget-demo-page">
+    <header class="widget-demo-header">
+      <div>
+        <p class="eyebrow">Widget showcase</p>
+        <h1>Offer widget examples</h1>
+        <p class="hero-copy">
+          Review how the same collection can be merchandised as a single featured card, a two-offer panel, or a compact storefront rail.
+        </p>
+      </div>
 
-      <div class="widget-header">
-        <div>
-          <p class="eyebrow">Featured offers</p>
-          <h1 id="widget-title-text">Featured offers</h1>
-          <p class="widget-subtitle" id="widget-subtitle-text">Connected ticketing inventory, ready for checkout.</p>
+      <div class="hero-actions">
+        <a class="ghost-button" href="./index.html">Back to admin</a>
+        <button class="primary-button" id="refresh-showcase" type="button">Refresh examples</button>
+      </div>
+    </header>
+
+    <section class="widget-showcase">
+      <article class="widget-demo-card">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Single panel</p>
+            <h3>Featured hero offer</h3>
+          </div>
         </div>
-        <button class="widget-refresh" id="widget-refresh" type="button">Refresh</button>
-      </div>
 
-      <div class="widget-toolbar">
-        <span class="chip" id="widget-mode-chip">Demo mode</span>
-        <span class="chip" id="widget-provider-chip">2 providers</span>
-        <span class="chip" id="widget-filter-chip">Chicago</span>
-      </div>
+        <section class="widget-shell" data-variant-title="Featured offers" data-limit-override="1" data-layout-override="stack">
+          <div class="widget-banner"></div>
+          <div class="widget-header">
+            <div>
+              <p class="eyebrow widget-kicker">Featured offers</p>
+              <h2 class="widget-title-text">Featured offers</h2>
+              <p class="widget-subtitle-text widget-subtitle">Connected ticketing inventory, ready for checkout.</p>
+            </div>
+            <button class="widget-refresh" type="button">Refresh</button>
+          </div>
+          <div class="widget-toolbar">
+            <span class="chip widget-collection-chip">Collection</span>
+            <span class="chip widget-segment-chip">Segment</span>
+            <span class="chip widget-filter-chip">Chicago</span>
+          </div>
+          <div class="widget-feedback">Loading feed...</div>
+          <div class="widget-events"></div>
+        </section>
+      </article>
 
-      <div class="widget-feedback" id="widget-feedback">Loading feed...</div>
-      <div class="widget-events" id="widget-events"></div>
+      <article class="widget-demo-card">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Double panel</p>
+            <h3>Two-up collection</h3>
+          </div>
+        </div>
+
+        <section class="widget-shell" data-variant-title="Top two offers" data-limit-override="2" data-layout-override="grid">
+          <div class="widget-banner"></div>
+          <div class="widget-header">
+            <div>
+              <p class="eyebrow widget-kicker">Top two offers</p>
+              <h2 class="widget-title-text">Top two offers</h2>
+              <p class="widget-subtitle-text widget-subtitle">Best-performing offers from the active collection.</p>
+            </div>
+            <button class="widget-refresh" type="button">Refresh</button>
+          </div>
+          <div class="widget-toolbar">
+            <span class="chip widget-collection-chip">Collection</span>
+            <span class="chip widget-segment-chip">Segment</span>
+            <span class="chip widget-filter-chip">Chicago</span>
+          </div>
+          <div class="widget-feedback">Loading feed...</div>
+          <div class="widget-events"></div>
+        </section>
+      </article>
+
+      <article class="widget-demo-card">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Compact rail</p>
+            <h3>Scrollable storefront list</h3>
+          </div>
+        </div>
+
+        <section class="widget-shell" data-variant-title="More to explore" data-limit-override="4" data-layout-override="compact">
+          <div class="widget-banner"></div>
+          <div class="widget-header">
+            <div>
+              <p class="eyebrow widget-kicker">More to explore</p>
+              <h2 class="widget-title-text">More to explore</h2>
+              <p class="widget-subtitle-text widget-subtitle">A compact merchandising rail for embedded sidebars.</p>
+            </div>
+            <button class="widget-refresh" type="button">Refresh</button>
+          </div>
+          <div class="widget-toolbar">
+            <span class="chip widget-collection-chip">Collection</span>
+            <span class="chip widget-segment-chip">Segment</span>
+            <span class="chip widget-filter-chip">Chicago</span>
+          </div>
+          <div class="widget-feedback">Loading feed...</div>
+          <div class="widget-events"></div>
+        </section>
+      </article>
     </section>
   </main>
 
