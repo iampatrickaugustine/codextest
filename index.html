@@ -290,6 +290,162 @@
                 </label>
               </div>
             </article>
+
+            <article class="provider-card">
+              <div class="provider-head">
+                <div>
+                  <h4>SeatGeek</h4>
+                  <p>Supports browser-direct previews using a public client ID, or hand off to your API-managed connector for production.</p>
+                </div>
+                <label class="toggle">
+                  <input data-path="providers.seatgeek.enabled" type="checkbox">
+                  <span>Enabled</span>
+                </label>
+              </div>
+
+              <div class="field-grid">
+                <label class="field">
+                  <span>Client ID</span>
+                  <input data-path="providers.seatgeek.clientId" type="text" placeholder="Optional for direct mode">
+                </label>
+                <label class="field">
+                  <span>Country code</span>
+                  <input data-path="providers.seatgeek.countryCode" type="text" maxlength="2">
+                </label>
+              </div>
+            </article>
+
+            <article class="provider-card">
+              <div class="provider-head">
+                <div>
+                  <h4>AXS</h4>
+                  <p>API-managed integration for AXS-powered venues. Credentials and partner endpoints are managed server-side.</p>
+                </div>
+                <label class="toggle">
+                  <input data-path="providers.axs.enabled" type="checkbox">
+                  <span>Enabled</span>
+                </label>
+              </div>
+
+              <div class="field-grid">
+                <label class="field">
+                  <span>Base URL</span>
+                  <input data-path="providers.axs.baseUrl" type="text">
+                </label>
+                <label class="field">
+                  <span>Account ID</span>
+                  <input data-path="providers.axs.accountId" type="text">
+                </label>
+                <label class="field">
+                  <span>Auth token</span>
+                  <input data-path="providers.axs.token" type="text" placeholder="Stored server-side in production">
+                </label>
+              </div>
+            </article>
+
+            <article class="provider-card">
+              <div class="provider-head">
+                <div>
+                  <h4>Eventbrite</h4>
+                  <p>API-managed integration for Eventbrite inventory. Token and organizer credentials stay off the frontend.</p>
+                </div>
+                <label class="toggle">
+                  <input data-path="providers.eventbrite.enabled" type="checkbox">
+                  <span>Enabled</span>
+                </label>
+              </div>
+
+              <div class="field-grid">
+                <label class="field">
+                  <span>Base URL</span>
+                  <input data-path="providers.eventbrite.baseUrl" type="text">
+                </label>
+                <label class="field">
+                  <span>Private token</span>
+                  <input data-path="providers.eventbrite.token" type="text" placeholder="Stored server-side in production">
+                </label>
+                <label class="field">
+                  <span>Organizer ID</span>
+                  <input data-path="providers.eventbrite.organizerId" type="text" placeholder="Optional filter">
+                </label>
+              </div>
+            </article>
+
+            <article class="provider-card">
+              <div class="provider-head">
+                <div>
+                  <h4>StubHub</h4>
+                  <p>API-managed integration for StubHub resale inventory. OAuth credentials are managed server-side.</p>
+                </div>
+                <label class="toggle">
+                  <input data-path="providers.stubhub.enabled" type="checkbox">
+                  <span>Enabled</span>
+                </label>
+              </div>
+
+              <div class="field-grid">
+                <label class="field">
+                  <span>Base URL</span>
+                  <input data-path="providers.stubhub.baseUrl" type="text">
+                </label>
+                <label class="field">
+                  <span>Auth token</span>
+                  <input data-path="providers.stubhub.token" type="text" placeholder="Stored server-side in production">
+                </label>
+              </div>
+            </article>
+
+            <article class="provider-card">
+              <div class="provider-head">
+                <div>
+                  <h4>Vivid Seats</h4>
+                  <p>API-managed integration for Vivid Seats resale inventory. Partner credentials stay off the frontend.</p>
+                </div>
+                <label class="toggle">
+                  <input data-path="providers.vividseats.enabled" type="checkbox">
+                  <span>Enabled</span>
+                </label>
+              </div>
+
+              <div class="field-grid">
+                <label class="field">
+                  <span>Base URL</span>
+                  <input data-path="providers.vividseats.baseUrl" type="text">
+                </label>
+                <label class="field">
+                  <span>Auth token</span>
+                  <input data-path="providers.vividseats.token" type="text" placeholder="Stored server-side in production">
+                </label>
+              </div>
+            </article>
+
+            <article class="provider-card">
+              <div class="provider-head">
+                <div>
+                  <h4>Paciolan</h4>
+                  <p>API-managed integration for Paciolan-powered venues and collegiate programs. Tenant credentials are managed server-side.</p>
+                </div>
+                <label class="toggle">
+                  <input data-path="providers.paciolan.enabled" type="checkbox">
+                  <span>Enabled</span>
+                </label>
+              </div>
+
+              <div class="field-grid">
+                <label class="field">
+                  <span>Base URL</span>
+                  <input data-path="providers.paciolan.baseUrl" type="text">
+                </label>
+                <label class="field">
+                  <span>Tenant / org</span>
+                  <input data-path="providers.paciolan.tenant" type="text">
+                </label>
+                <label class="field">
+                  <span>Auth token</span>
+                  <input data-path="providers.paciolan.token" type="text" placeholder="Stored server-side in production">
+                </label>
+              </div>
+            </article>
           </div>
         </article>
 

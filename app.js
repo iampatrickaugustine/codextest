@@ -46,6 +46,39 @@ const DEFAULT_CONFIG = {
       tenant: "demo-club",
       token: "",
     },
+    seatgeek: {
+      enabled: false,
+      clientId: "",
+      countryCode: "US",
+    },
+    axs: {
+      enabled: false,
+      baseUrl: "/api/providers/axs",
+      accountId: "",
+      token: "",
+    },
+    eventbrite: {
+      enabled: false,
+      baseUrl: "/api/providers/eventbrite",
+      token: "",
+      organizerId: "",
+    },
+    stubhub: {
+      enabled: false,
+      baseUrl: "/api/providers/stubhub",
+      token: "",
+    },
+    vividseats: {
+      enabled: false,
+      baseUrl: "/api/providers/vividseats",
+      token: "",
+    },
+    paciolan: {
+      enabled: false,
+      baseUrl: "/api/providers/paciolan",
+      tenant: "",
+      token: "",
+    },
   },
   api: {
     configEndpoint: "/api/integrations/config",
@@ -156,6 +189,186 @@ const DEMO_EVENTS = [
     priceFrom: 28,
     category: "sports",
     url: "https://www.ticketmaster.com/",
+    imageUrl: "https://images.pexels.com/photos/4500123/pexels-photo-4500123.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    gradient: "var(--card-sport)",
+    badge: "Basketball",
+  },
+  {
+    id: "sg-001",
+    provider: "SeatGeek",
+    providerKey: "seatgeek",
+    title: "Chicago Bulls vs Miami Heat",
+    venue: "United Center",
+    city: "Chicago",
+    dateTime: "2026-03-26T19:30:00-05:00",
+    priceFrom: 48,
+    category: "sports",
+    url: "https://seatgeek.com/",
+    imageUrl: "https://images.pexels.com/photos/4500123/pexels-photo-4500123.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    gradient: "var(--card-sport)",
+    badge: "Basketball",
+  },
+  {
+    id: "sg-002",
+    provider: "SeatGeek",
+    providerKey: "seatgeek",
+    title: "Post Malone – Big Ass Stadium Tour",
+    venue: "Wrigley Field",
+    city: "Chicago",
+    dateTime: "2026-04-18T20:00:00-05:00",
+    priceFrom: 89,
+    category: "music",
+    url: "https://seatgeek.com/",
+    imageUrl: "https://images.pexels.com/photos/167605/pexels-photo-167605.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    gradient: "var(--card-night)",
+    badge: "Music",
+  },
+  {
+    id: "axs-001",
+    provider: "AXS",
+    providerKey: "axs",
+    title: "Pitchfork Music Festival – Day 1",
+    venue: "Union Park",
+    city: "Chicago",
+    dateTime: "2026-07-17T12:00:00-05:00",
+    priceFrom: 95,
+    category: "music",
+    url: "https://www.axs.com/",
+    imageUrl: "https://images.pexels.com/photos/167605/pexels-photo-167605.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    gradient: "var(--card-night)",
+    badge: "Festival",
+  },
+  {
+    id: "axs-002",
+    provider: "AXS",
+    providerKey: "axs",
+    title: "Chicago Blackhawks vs Detroit Red Wings",
+    venue: "United Center",
+    city: "Chicago",
+    dateTime: "2026-04-02T19:00:00-05:00",
+    priceFrom: 62,
+    category: "sports",
+    url: "https://www.axs.com/",
+    imageUrl: "https://images.pexels.com/photos/33715952/pexels-photo-33715952.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    gradient: "var(--card-cool)",
+    badge: "Hockey",
+  },
+  {
+    id: "eb-001",
+    provider: "Eventbrite",
+    providerKey: "eventbrite",
+    title: "Chicago Comedy Festival",
+    venue: "Laugh Factory Chicago",
+    city: "Chicago",
+    dateTime: "2026-04-10T20:00:00-05:00",
+    priceFrom: 35,
+    category: "theatre",
+    url: "https://www.eventbrite.com/",
+    imageUrl: "https://images.pexels.com/photos/31474150/pexels-photo-31474150.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    gradient: "var(--card-warm)",
+    badge: "Comedy",
+  },
+  {
+    id: "eb-002",
+    provider: "Eventbrite",
+    providerKey: "eventbrite",
+    title: "Grant Park Music Festival",
+    venue: "Millennium Park",
+    city: "Chicago",
+    dateTime: "2026-06-26T18:30:00-05:00",
+    priceFrom: 0,
+    category: "music",
+    url: "https://www.eventbrite.com/",
+    imageUrl: "https://images.pexels.com/photos/7095719/pexels-photo-7095719.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    gradient: "var(--card-sky)",
+    badge: "Free",
+  },
+  {
+    id: "sh-001",
+    provider: "StubHub",
+    providerKey: "stubhub",
+    title: "Chicago Cubs vs St. Louis Cardinals",
+    venue: "Wrigley Field",
+    city: "Chicago",
+    dateTime: "2026-04-15T13:20:00-05:00",
+    priceFrom: 44,
+    category: "sports",
+    url: "https://www.stubhub.com/",
+    imageUrl: "https://images.pexels.com/photos/33715952/pexels-photo-33715952.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    gradient: "var(--card-sunset)",
+    badge: "Baseball",
+  },
+  {
+    id: "sh-002",
+    provider: "StubHub",
+    providerKey: "stubhub",
+    title: "Lollapalooza 4-Day Pass",
+    venue: "Grant Park",
+    city: "Chicago",
+    dateTime: "2026-07-30T11:00:00-05:00",
+    priceFrom: 340,
+    category: "music",
+    url: "https://www.stubhub.com/",
+    imageUrl: "https://images.pexels.com/photos/167605/pexels-photo-167605.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    gradient: "var(--card-bright)",
+    badge: "Festival",
+  },
+  {
+    id: "vs-001",
+    provider: "Vivid Seats",
+    providerKey: "vividseats",
+    title: "Cirque du Soleil – Alegría",
+    venue: "Sears Centre",
+    city: "Hoffman Estates",
+    dateTime: "2026-04-24T19:30:00-05:00",
+    priceFrom: 58,
+    category: "family",
+    url: "https://www.vividseats.com/",
+    imageUrl: "https://images.pexels.com/photos/31474150/pexels-photo-31474150.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    gradient: "var(--card-bright)",
+    badge: "Family",
+  },
+  {
+    id: "vs-002",
+    provider: "Vivid Seats",
+    providerKey: "vividseats",
+    title: "Chicago White Sox Home Opener",
+    venue: "Guaranteed Rate Field",
+    city: "Chicago",
+    dateTime: "2026-04-07T13:10:00-05:00",
+    priceFrom: 29,
+    category: "sports",
+    url: "https://www.vividseats.com/",
+    imageUrl: "https://images.pexels.com/photos/4500123/pexels-photo-4500123.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    gradient: "var(--card-cool)",
+    badge: "Baseball",
+  },
+  {
+    id: "pac-001",
+    provider: "Paciolan",
+    providerKey: "paciolan",
+    title: "Northwestern Wildcats vs Illinois Fighting Illini",
+    venue: "Ryan Field",
+    city: "Evanston",
+    dateTime: "2026-04-11T14:00:00-05:00",
+    priceFrom: 22,
+    category: "sports",
+    url: "https://www.paciolan.com/",
+    imageUrl: "https://images.pexels.com/photos/33715952/pexels-photo-33715952.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    gradient: "var(--card-sunset)",
+    badge: "College Sports",
+  },
+  {
+    id: "pac-002",
+    provider: "Paciolan",
+    providerKey: "paciolan",
+    title: "DePaul Blue Demons vs Marquette",
+    venue: "Wintrust Arena",
+    city: "Chicago",
+    dateTime: "2026-03-31T18:00:00-05:00",
+    priceFrom: 18,
+    category: "sports",
+    url: "https://www.paciolan.com/",
     imageUrl: "https://images.pexels.com/photos/4500123/pexels-photo-4500123.jpeg?auto=compress&cs=tinysrgb&w=1200",
     gradient: "var(--card-sport)",
     badge: "Basketball",
@@ -558,6 +771,40 @@ async function loadDirectFeed(config) {
     eventSets.push(filterAndSortEvents(DEMO_EVENTS.filter((event) => event.providerKey === "ticketscom"), config));
   }
 
+  if (enabledProviders.includes("seatgeek")) {
+    if (config.providers.seatgeek.clientId) {
+      try {
+        const seatgeekEvents = await loadDirectSeatGeek(config);
+        eventSets.push(seatgeekEvents);
+      } catch (error) {
+        addLog(`SeatGeek direct mode fell back to demo data. ${error.message}`);
+        eventSets.push(filterAndSortEvents(DEMO_EVENTS.filter((event) => event.providerKey === "seatgeek"), config));
+      }
+    } else {
+      eventSets.push(filterAndSortEvents(DEMO_EVENTS.filter((event) => event.providerKey === "seatgeek"), config));
+    }
+  }
+
+  if (enabledProviders.includes("axs")) {
+    eventSets.push(filterAndSortEvents(DEMO_EVENTS.filter((event) => event.providerKey === "axs"), config));
+  }
+
+  if (enabledProviders.includes("eventbrite")) {
+    eventSets.push(filterAndSortEvents(DEMO_EVENTS.filter((event) => event.providerKey === "eventbrite"), config));
+  }
+
+  if (enabledProviders.includes("stubhub")) {
+    eventSets.push(filterAndSortEvents(DEMO_EVENTS.filter((event) => event.providerKey === "stubhub"), config));
+  }
+
+  if (enabledProviders.includes("vividseats")) {
+    eventSets.push(filterAndSortEvents(DEMO_EVENTS.filter((event) => event.providerKey === "vividseats"), config));
+  }
+
+  if (enabledProviders.includes("paciolan")) {
+    eventSets.push(filterAndSortEvents(DEMO_EVENTS.filter((event) => event.providerKey === "paciolan"), config));
+  }
+
   return mergeEventSets(eventSets, config.widget.maxItems);
 }
 
@@ -617,6 +864,58 @@ async function loadDirectTicketmaster(config) {
     url: event.url,
     gradient: "var(--card-night)",
     badge: event.classifications?.[0]?.genre?.name || "Live",
+  }));
+}
+
+async function loadDirectSeatGeek(config) {
+  const params = new URLSearchParams({
+    client_id: config.providers.seatgeek.clientId,
+    per_page: String(config.widget.maxItems),
+    sort: "datetime_local.asc",
+  });
+
+  if (config.filters.city) {
+    params.set("venue.city", config.filters.city);
+  }
+
+  if (config.filters.keyword) {
+    params.set("q", config.filters.keyword);
+  }
+
+  if (config.filters.classification) {
+    params.set("taxonomies.name", config.filters.classification);
+  }
+
+  if (config.filters.startDate) {
+    params.set("datetime_local.gte", new Date(config.filters.startDate).toISOString());
+  }
+
+  if (config.providers.seatgeek.countryCode) {
+    params.set("venue.country", config.providers.seatgeek.countryCode);
+  }
+
+  const response = await fetch(`https://api.seatgeek.com/2/events?${params.toString()}`);
+
+  if (!response.ok) {
+    throw new Error(`SeatGeek returned ${response.status}`);
+  }
+
+  const payload = await response.json();
+  const rawEvents = payload.events || [];
+
+  return rawEvents.map((event) => ({
+    id: `sg-${event.id}`,
+    provider: "SeatGeek",
+    providerKey: "seatgeek",
+    title: event.title,
+    venue: event.venue?.name || "Venue pending",
+    city: event.venue?.city || config.filters.city || "Unknown city",
+    dateTime: event.datetime_local || `${config.filters.startDate}T19:00:00-05:00`,
+    priceFrom: event.stats?.lowest_price || null,
+    category: event.taxonomies?.[0]?.name?.toLowerCase() || config.filters.classification || "live",
+    url: event.url,
+    gradient: "var(--card-sport)",
+    badge: event.taxonomies?.[0]?.name || "Live",
   }));
 }
 
@@ -1020,6 +1319,30 @@ function sanitizeConfig(candidate) {
       ticketscom: {
         ...clone(DEFAULT_CONFIG.providers.ticketscom),
         ...(candidate?.providers?.ticketscom || {}),
+      },
+      seatgeek: {
+        ...clone(DEFAULT_CONFIG.providers.seatgeek),
+        ...(candidate?.providers?.seatgeek || {}),
+      },
+      axs: {
+        ...clone(DEFAULT_CONFIG.providers.axs),
+        ...(candidate?.providers?.axs || {}),
+      },
+      eventbrite: {
+        ...clone(DEFAULT_CONFIG.providers.eventbrite),
+        ...(candidate?.providers?.eventbrite || {}),
+      },
+      stubhub: {
+        ...clone(DEFAULT_CONFIG.providers.stubhub),
+        ...(candidate?.providers?.stubhub || {}),
+      },
+      vividseats: {
+        ...clone(DEFAULT_CONFIG.providers.vividseats),
+        ...(candidate?.providers?.vividseats || {}),
+      },
+      paciolan: {
+        ...clone(DEFAULT_CONFIG.providers.paciolan),
+        ...(candidate?.providers?.paciolan || {}),
       },
     },
     api: {
